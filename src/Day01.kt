@@ -1,17 +1,46 @@
 fun main() {
     fun part1(input: List<String>): Int {
-        return input.size
+        return input.map {
+            val digits = it.filter { char -> char.isDigit() }
+            val firstAndLast = digits.first() + "" + digits.last()
+
+            firstAndLast.toInt()
+        }.reduce { acc, int ->
+            acc + int
+        }
     }
 
     fun part2(input: List<String>): Int {
-        return input.size
+        val replacements = mapOf(
+                "one" to "1e",
+                "two" to "2o",
+                "three" to "3e",
+                "four" to "4r",
+                "five" to "5e",
+                "six" to "6x",
+                "seven" to "7n",
+                "eight" to "8t",
+                "nine" to "9e"
+        )
+
+        val lines = input.map { line ->
+            line.map {
+                it.toString()
+            }.reduce { acc, char ->
+                var result = acc + char
+                for ((key, value) in replacements) {
+                    result = result.replace(key, value)
+                }
+                result
+            }
+        }
+
+        return part1(lines)
     }
 
-    // test if implementation meets criteria from the description, like:
-    val testInput = readInput("Day01_test")
-    check(part1(testInput) == 1)
 
     val input = readInput("Day01")
-    part1(input).println()
-    part2(input).println()
+
+    part1(input).println() //54708
+    part2(input).println() //54087
 }
