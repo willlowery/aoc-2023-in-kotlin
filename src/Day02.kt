@@ -46,15 +46,15 @@ data class Game(
         val rounds: List<List<Score>>
 ) {
     fun findMax(label: String): Int {
-        var result = 0;
+        var result = 0
         for (round in rounds) {
             for (score in round) {
                 if (score.label == label) {
-                    result = max(score.score, result);
+                    result = max(score.score, result)
                 }
             }
         }
-        return result;
+        return result
     }
 }
 
