@@ -56,5 +56,4 @@ fun main() {
 data class Card(val id: Int, val winningNumbers: List<Int>, val numbers: List<Int>) {
     val matching: Int = numbers.intersect(winningNumbers.toSet()).size
     val score: Int = if (matching == 0) 0 else 2.toDouble().pow((matching - 1)).toInt()
-
 }

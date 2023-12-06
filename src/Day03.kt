@@ -23,7 +23,7 @@ fun main() {
     part2(world).println() // 76504829
 }
 
-class WorldBuilder() {
+class WorldBuilder {
     private val symbols = mutableMapOf<Point, Char>()
     private val digits = mutableSetOf<Digits>()
 
