@@ -21,19 +21,19 @@ fun main() {
 
     fun part1(input: List<String>): Int {
         return input
-                .map { line -> readGameFromLine(line) }
-                .filter {
-                    it.findMax("red") <= 12 && it.findMax("green") <= 13 && it.findMax("blue") <= 14
-                }
-                .sumOf { it.id }
+            .map { line -> readGameFromLine(line) }
+            .filter {
+                it.findMax("red") <= 12 && it.findMax("green") <= 13 && it.findMax("blue") <= 14
+            }
+            .sumOf { it.id }
     }
 
     fun part2(input: List<String>): Int {
         return input
-                .map { readGameFromLine(it) }
-                .sumOf {
-                    it.findMax("red") * it.findMax("green") * it.findMax("blue")
-                }
+            .map { readGameFromLine(it) }
+            .sumOf {
+                it.findMax("red") * it.findMax("green") * it.findMax("blue")
+            }
     }
 
     val input = readInput("Day02")
@@ -42,8 +42,8 @@ fun main() {
 }
 
 data class Game(
-        val id: Int,
-        val rounds: List<List<Score>>
+    val id: Int,
+    val rounds: List<List<Score>>
 ) {
     fun findMax(label: String): Int {
         var result = 0

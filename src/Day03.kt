@@ -4,16 +4,16 @@ import kotlin.math.sqrt
 fun main() {
     fun part1(world: World): Int {
         return world.digits
-                .filter { digit -> world.symbols.any { digit.near(it.key) } }
-                .sumOf { it.value }
+            .filter { digit -> world.symbols.any { digit.near(it.key) } }
+            .sumOf { it.value }
     }
 
     fun part2(world: World): Int {
         return world.symbols
-                .filter { it.value == '*' }
-                .map { potentialGear -> Pair(potentialGear.key, world.digits.filter { it.near(potentialGear.key) }) }
-                .filter { it.second.size == 2 }
-                .sumOf { it.second.map { it.value }.reduce { acc, i -> acc * i } }
+            .filter { it.value == '*' }
+            .map { potentialGear -> Pair(potentialGear.key, world.digits.filter { it.near(potentialGear.key) }) }
+            .filter { it.second.size == 2 }
+            .sumOf { it.second.map { it.value }.reduce { acc, i -> acc * i } }
     }
 
     val lines = readInput("Day03")
@@ -60,8 +60,10 @@ class WorldBuilder {
 data class World(val digits: Set<Digits>, val symbols: Map<Point, Char>)
 data class Point(val x: Int, val y: Int) {
     fun dist(other: Point): Double {
-        return sqrt((x - other.x).toDouble().pow(2) +
-                (y - other.y).toDouble().pow(2))
+        return sqrt(
+            (x - other.x).toDouble().pow(2) +
+                    (y - other.y).toDouble().pow(2)
+        )
     }
 }
 

@@ -13,9 +13,9 @@ fun main() {
                 val numbers = it.split(" ").map { it.toLong() }
 
                 functions.last().put(
-                        numbers[1],
-                        numbers[0],
-                        numbers[2]
+                    numbers[1],
+                    numbers[0],
+                    numbers[2]
                 )
             }
         }
@@ -37,7 +37,7 @@ fun main() {
 
     fun part2(input: List<String>) {
         val item = convert(input)
-        var min = Long.MAX_VALUE
+        val min = Long.MAX_VALUE
         item.first.fold(mutableListOf<MutableList<Long>>())
         { acc, l ->
             if (acc.isEmpty()) {
@@ -62,7 +62,7 @@ fun main() {
 
 
 data class MyCoolMap(
-        private val l: MutableList<Day05Range> = mutableListOf()
+    private val l: MutableList<Day05Range> = mutableListOf()
 ) {
     fun put(incomingStart: Long, endingStart: Long, length: Long) {
         l.add(Day05Range(incomingStart, endingStart, length))
@@ -75,9 +75,9 @@ data class MyCoolMap(
 }
 
 data class Day05Range(
-        val incoming: Long,
-        val ending: Long,
-        val length: Long
+    val incoming: Long,
+    val ending: Long,
+    val length: Long
 
 ) {
     val incomingEnd = incoming + length

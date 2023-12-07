@@ -12,15 +12,15 @@ fun main() {
 
     fun part2(input: List<String>): Int {
         val replacements = mapOf(
-                "one" to "1e",
-                "two" to "2o",
-                "three" to "3e",
-                "four" to "4r",
-                "five" to "5e",
-                "six" to "6x",
-                "seven" to "7n",
-                "eight" to "8t",
-                "nine" to "9e"
+            "one" to "1e",
+            "two" to "2o",
+            "three" to "3e",
+            "four" to "4r",
+            "five" to "5e",
+            "six" to "6x",
+            "seven" to "7n",
+            "eight" to "8t",
+            "nine" to "9e"
         )
 
         val lines = input.map { line ->

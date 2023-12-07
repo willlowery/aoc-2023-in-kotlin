@@ -7,17 +7,17 @@ fun main() {
         val id = idSplitOut[0].split("\\s+".toRegex())[1].toInt()
 
         val numbersSplitOut = idSplitOut[1]
-                .split("|")
+            .split("|")
 
         val magicNumbers = numbersSplitOut[0]
-                .split(" ")
-                .filter { it.isNotEmpty() }
-                .map { it.toInt() }
+            .split(" ")
+            .filter { it.isNotEmpty() }
+            .map { it.toInt() }
 
         val numbers = numbersSplitOut[1]
-                .split(" ")
-                .filter { it.isNotEmpty() }
-                .map { it.toInt() }
+            .split(" ")
+            .filter { it.isNotEmpty() }
+            .map { it.toInt() }
 
         return Card(id, magicNumbers, numbers)
     }
